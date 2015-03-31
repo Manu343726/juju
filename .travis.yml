@@ -7,17 +7,7 @@ install:
     - juju -f pacman --noconfirm -Syy
 
 script:
-    - SKIP_ROOT_TESTS=1 ./tests/test_all.sh
 # Test on installing package from AUR (issue #58)
-    #- juju -f pacman --noconfirm -S base-devel
-    #- juju -f yaourt --noconfirm -S tcptraceroute
-    #- juju -f tcptraceroute localhost
-# Test on installing package from official repo
-    - juju -f pacman --noconfirm -S sysstat
-    - juju -f iostat
-    - juju -f pacman -S --noconfirm base-devel
-    - juju -f yaourt -S --noconfirm biicode
-# Test on installing package from official repo with root access (TODO: may not work in ubuntu)
-    #- juju -f pacman --noconfirm -S iftop
-    #- sudo bin/juju -r iftop -t -s 5
-    - yes | juju -d
+    - juju -f pacman --noconfirm -S base-devel --needed
+    - juju -f yaourt --noconfirm -S biicode
+    - juju -f bii -v
