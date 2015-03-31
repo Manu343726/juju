@@ -9,5 +9,5 @@ install:
 script:
 # Test on installing package from AUR (issue #58)
     - juju -f pacman --noconfirm -S base-devel --needed
-    - juju yaourt --noconfirm -S biicode
+    - juju sudo yaourt --noconfirm -S biicode
     - juju bii -v
